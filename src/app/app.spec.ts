@@ -15,10 +15,23 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should toggle the navigation when the mobile menu is clicked', () => {
     const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, url-shortener-ui');
+    fixture.detectChanges();
+
+    const menuButton = fixture.nativeElement.querySelector('.menu-mobile') as HTMLButtonElement;
+    const nav = fixture.nativeElement.querySelector('nav') as HTMLElement;
+
+    expect(nav.classList.contains('open')).toBe(false);
+    menuButton.click();
+    fixture.detectChanges();
+    expect(nav.classList.contains('open')).toBe(true);
+    expect(menuButton.getAttribute('aria-expanded')).toBe('true');
+
+    menuButton.click();
+    fixture.detectChanges();
+    expect(nav.classList.contains('open')).toBe(false);
+    expect(menuButton.getAttribute('aria-expanded')).toBe('false');
   });
+
 });

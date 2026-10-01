@@ -1,12 +1,19 @@
 import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [FormsModule, RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('url-shortener-ui');
+
+  menuOpen = signal(false);
+  originalUrl = '';
+
+  toggleMenu() {
+    this.menuOpen.update((isOpen) => !isOpen);
+  }
 }
