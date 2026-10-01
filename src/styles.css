@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--color-primary: #ff8fa3;
+	--color-secondary: #fffcf2;
+	--color-tertiary: #252422;
+	--color-quaternary: #000000;
+}
+
+@font-face {
+	font-family: 'Geist';
+	src: url('/font/Geist-VariableFont_wght.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist';
+	src: url('/font/Geist-Italic-VariableFont_wght.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/font/GeistMono-VariableFont_wght.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/font/GeistMono-Italic-VariableFont_wght.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+/* estilos globales */
+
+body {
+    margin: 1rem 1.5rem;
+	background-color: var(--color-secondary);
+	color: var(--color-tertiary);
+	font-family: 'Geist', sans-serif;
+}
