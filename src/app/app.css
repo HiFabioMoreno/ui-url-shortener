@@ -1,5 +1,26 @@
-header, main, footer {
-    font-family: 'Geist', sans-serif;
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100dvh - 2rem);
+    isolation: isolate;
+}
+
+.contenedor-img-fondo {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    width: 100vw;
+}
+
+.contenedor-img-fondo img {
+    position: absolute;
+    width: 300vw;
+    top: -35%;
+    right: -100%;
+    left: auto;
+    height: auto;
+    opacity: 70%;
 }
 
 header {
@@ -98,22 +119,20 @@ nav ul li a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
-    max-width: 36rem;
+    max-width: 40rem;
 }
 
 .hero-titulo h1 {
     margin-block-end: 0;
     font-size: clamp(2rem, 5vw, 3rem);
-   
 }
 
-.hero-titulo .highlight {
-    background-color: var(--color-primary);
+/*.hero-titulo .highlight {
+    background-color: white;
     color: var(--color-secondary);
     font-weight: 600;
     padding: 0.1rem 0.3rem;
-}
+}*/
 
 .hero-titulo p {
     margin-block-start: 0;
@@ -126,6 +145,7 @@ nav ul li a {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .seccion-formulario-url .formulario-url {
@@ -135,20 +155,30 @@ nav ul li a {
 
 .formulario-url input {
     width: 15rem;
-    padding: 5px 4px;
-    border: 1px solid;
+    padding: 8px 8px;
+    border: 1px solid rgb(46, 46, 46);
     border-radius: 10px;
+    background-color: var(--color-secondary);
+    opacity: 70%;
+    backdrop-filter: blur(10px);
+    color: var(--color-tertiary);
     font-family: 'Geist',sans-serif;
     font-weight: 400;
 }
 
-.formulario-url .btn-acortar {
+.btn-acortar {
     color: var(--color-secondary);
     font-weight: 600;
     background-color: var(--color-tertiary);     
     border-radius: 10px;
-    padding: 5px 10px;  
+    padding: 8px 8px;  
     cursor: pointer;
+    border: 1px solid var(--color-tertiary);
+    transition: opacity 400ms ease-in-out;
+}
+
+.btn-acortar:hover {
+   opacity: 70%;
 }
 
 footer {
@@ -156,6 +186,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 }
 footer p {
     aspect-ratio:square;
@@ -190,6 +221,11 @@ footer a {
 }
 
 @media (min-width: 768px) {
+    .contenedor-img-fondo img {
+    width: 180vw;
+    top: -50%;
+    right: -40%;
+    }
     nav {
         visibility: visible;
         position: static;
@@ -208,6 +244,10 @@ footer a {
         display: none;
     }
 
+    .hero-titulo h1{
+    margin-top: 2rem;
+    }
+
     .formulario-url input {
          width: 20rem;
 
@@ -220,8 +260,23 @@ footer a {
 
 
 @media (min-width: 1024px) {
+    .contenedor-img-fondo img {
+    width: 150vw;
+    top: -90%;
+    right: -25%;
+    }
     .formulario-url input {
          width: 26rem;
          height: 1.25rem;
     }   
+}
+
+
+@media (min-width: 2560px) {
+    .contenedor-img-fondo img {
+    width: 140vw;
+    top: -120%;
+    right: -20%;
+    }
+
 }
